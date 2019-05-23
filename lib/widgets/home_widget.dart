@@ -8,10 +8,9 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
-  //Show Text Value
-  Widget _textValue(double v) {
+  Widget _textValue(String v) {
     return Text(
-      "Value: ${v.toStringAsPrecision(1)}",
+      v,
       style: TextStyle(
         color: Colors.white,
         fontSize: 24,
@@ -22,7 +21,6 @@ class _HomeWidgetState extends State<HomeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    
     print("reconstruindo");
 
     ValueBloc valueBloc = BlocProvider.getBloc<ValueBloc>();
@@ -32,26 +30,29 @@ class _HomeWidgetState extends State<HomeWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Consumer<ValueBloc>(
-            builder: (BuildContext context, ValueBloc valueBloc) {
-              return _textValue(valueBloc.value);
+          StreamBuilder<String>(
+            stream: valueBloc.valueStringOut,
+            initialData: "No value inputed.",
+            builder: (BuildContext context, snapshot) {
+              return _textValue(snapshot.data);
             },
           ),
           Container(
             height: 25,
           ),
-          Consumer<ValueBloc>(
-            builder: (BuildContext context, ValueBloc valueBloc) {
+          StreamBuilder<double>(
+            stream: valueBloc.valueOut,
+            initialData: 0,
+            builder: (context, snapshot) {
               return Slider(
-              activeColor: Colors.white,
-              inactiveColor: Colors.white,
-              min: 0.0,
-              max: 1.0,
-              onChanged: valueBloc.onChangeValue,
-              value: valueBloc.value);
+                  activeColor: Colors.white,
+                  inactiveColor: Colors.white,
+                  min: 0.0,
+                  max: 1.0,
+                  onChanged: valueBloc.onChangeValue,
+                  value: snapshot.data);
             },
           ),
-          
         ],
       ),
     );
