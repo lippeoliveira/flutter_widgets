@@ -31,10 +31,19 @@ class _AnimatedLoginOneState extends State<AnimatedLoginOne> {
             ],
           ),
           new Expanded(
-            child: Container(
-              height: 100,
-              alignment: Alignment.topCenter,
-              color: Colors.white,
+            child: Center(
+              child: MaterialButton(
+                //elevation: 10,
+                color: Colors.blueAccent,
+                child: Text(
+                  "Execute",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.white),
+                ),
+                onPressed: () {},
+              ),
             ),
           )
         ],
