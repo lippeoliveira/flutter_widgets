@@ -1,6 +1,6 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
-import 'package:bloc_app/blocs/blocs.dart' show ValueBloc;
+import 'package:flutter_widgets/blocs/blocs.dart' show ValueBloc;
 
 class HomeWidget extends StatefulWidget {
   @override

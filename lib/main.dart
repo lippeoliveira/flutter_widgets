@@ -1,7 +1,7 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
-import 'package:bloc_app/widgets/widgets.dart' show HomeWidget;
-import 'package:bloc_app/blocs/blocs.dart' show ValueBloc;
+import 'package:flutter_widgets/widgets/widgets.dart' show MainWidget;
+import 'package:flutter_widgets/blocs/blocs.dart' show ValueBloc;
 
 void main() => runApp(MyApp());
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: HomeWidget(),
+        home: MainWidget(),
       ),
     );
   }
