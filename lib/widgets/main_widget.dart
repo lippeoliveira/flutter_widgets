@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/widgets/widgets.dart' show LoginWidget;
+import 'package:flutter_widgets/widgets/widgets.dart' show LoginWidget, MenuWidget;
 
 class MainWidget extends StatelessWidget {
   @override
@@ -19,6 +19,20 @@ class MainWidget extends StatelessWidget {
           }));
         },
       ),
+      ListTile(
+        leading: Icon(
+          Icons.lock_outline,
+          color: Colors.blue,
+        ),
+        title: Text("Menu Widgets"),
+        subtitle: Text("List of menu design."),
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (BuildContext context) {
+            return MenuWidget();
+          }));
+        },
+      )
     ];
 
     return SafeArea(
